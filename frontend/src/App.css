@@ -1,0 +1,1337 @@
+/* ============================================
+   BASE CONTAINER
+   Main app container with full viewport height
+   ============================================ */
+
+.app-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ============================================
+   HEADER SECTION
+   Modern header with elevated design
+   ============================================ */
+
+.header {
+  background-color: rgba(45, 45, 45, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 18px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 100;
+}
+
+.header-left {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  animation: fadeInSlide 0.6s ease-out;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.3px;
+  transition: color 0.3s ease;
+}
+
+.theme-label:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* ============================================
+   4. TOGGLE SWITCH
+   Animated toggle with icon transitions
+   ============================================ */
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-switch {
+  width: 56px;
+  height: 32px;
+  border-radius: 16px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark Mode Toggle - Blue with glow effect */
+.toggle-switch.dark-mode {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.4);
+}
+
+/* Light Mode Toggle - Warm gray */
+.toggle-switch.light-mode {
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-switch:hover {
+  transform: scale(1.05);
+}
+
+.toggle-handle {
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-handle svg {
+  transition: all 0.4s ease;
+}
+
+/* Moon icon in dark mode */
+.toggle-switch.dark-mode .toggle-handle {
+  color: #fbbf24;
+  animation: moonGlow 2s ease-in-out infinite alternate;
+}
+
+/* Sun icon in light mode */
+.toggle-switch.light-mode .toggle-handle {
+  color: #f59e0b;
+  animation: sunRotate 2s linear infinite;
+}
+
+/* Login Button - Modern gradient design */
+.login-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  letter-spacing: 0.3px;
+}
+
+.login-btn:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.login-btn:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   LOGIN PAGE STYLES
+   ============================================ */
+
+.login-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: rgba(40, 40, 40, 0.6);
+}
+
+.login-card {
+  background: rgba(30, 30, 30, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 48px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 420px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.login-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login-subtitle {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin-bottom: 32px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.form-input {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(40, 40, 40, 0.8);
+  color: white;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #3b82f6;
+  background: rgba(40, 40, 40, 1);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.login-submit-btn {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  margin-top: 8px;
+}
+
+.login-submit-btn:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.login-submit-btn:active {
+  transform: translateY(0);
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.forgot-password {
+  color: #3b82f6;
+  font-size: 13px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+  color: #60a5fa;
+  text-decoration: underline;
+}
+
+.login-signup {
+  margin-top: 32px;
+  text-align: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.login-signup p {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  margin: 0;
+}
+
+.signup-link {
+  color: #3b82f6;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.signup-link:hover {
+  color: #60a5fa;
+}
+
+/* Light Mode Login Styles */
+.app-container.light .login-container {
+  background: rgba(250, 250, 250, 0.6);
+}
+
+.app-container.light .login-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-container.light .login-subtitle {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.app-container.light .form-group label {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.app-container.light .form-input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  color: #1a1a1a;
+}
+
+.app-container.light .form-input:focus {
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 1);
+}
+
+.app-container.light .form-input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.app-container.light .login-signup {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-container.light .login-signup p {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* ============================================
+   5. MAIN CONTENT AREA
+   Flexbox layout for responsive design
+   ============================================ */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+}
+
+/* ============================================
+   6. SIDEBAR
+   Elegant sidebar with smooth interactions
+   ============================================ */
+
+.sidebar {
+  width: 220px;
+  background: rgba(40, 40, 40, 0.8);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Modern button design with hover effects */
+.btn {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+  color: #1f2937;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer effect on hover */
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #e5e7eb 0%, #d1d5db 100%);
+  transform: translateX(4px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:active {
+  transform: translateX(2px) scale(0.98);
+}
+
+/* Save animation for visual feedback */
+.btn.saving {
+  animation: saveSuccess 0.6s ease-out;
+}
+
+@keyframes saveSuccess {
+  0% {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+    transform: scale(1);
+  }
+}
+
+/* ============================================
+   SAVE MODAL STYLES
+   Modern modal dialog for saving files
+   ============================================ */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.save-modal {
+  background: rgba(30, 30, 30, 0.98);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-title {
+  font-size: 22px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+}
+
+.modal-close-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 1);
+}
+
+.modal-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modal-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal-form-group label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.modal-input,
+.modal-select {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(40, 40, 40, 0.8);
+  color: white;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+.modal-input:focus,
+.modal-select:focus {
+  border-color: #3b82f6;
+  background: rgba(40, 40, 40, 1);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.modal-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.modal-select {
+  cursor: pointer;
+}
+
+.modal-select option {
+  background: #2a2a2a;
+  color: white;
+}
+
+.modal-hint {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0;
+}
+
+.hint-filename {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.modal-footer {
+  display: flex;
+  gap: 12px;
+  padding: 20px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  justify-content: flex-end;
+}
+
+.modal-btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.modal-btn-cancel {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-btn-cancel:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.modal-btn-save {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.modal-btn-save:hover {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.modal-btn-save:active {
+  transform: translateY(0);
+}
+
+/* Light Mode Modal Styles */
+.app-container.light .save-modal {
+  background: rgba(255, 255, 255, 0.98);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-container.light .modal-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-container.light .modal-title {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.app-container.light .modal-close-btn {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.app-container.light .modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 1);
+}
+
+.app-container.light .modal-form-group label {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.app-container.light .modal-input,
+.app-container.light .modal-select {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  color: #1a1a1a;
+}
+
+.app-container.light .modal-input:focus,
+.app-container.light .modal-select:focus {
+  border-color: #3b82f6;
+  background: rgba(255, 255, 255, 1);
+}
+
+.app-container.light .modal-input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.app-container.light .modal-select option {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.app-container.light .modal-hint {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.app-container.light .modal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.app-container.light .modal-btn-cancel {
+  background: rgba(0, 0, 0, 0.05);
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.app-container.light .modal-btn-cancel:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 1);
+}
+
+.files-section {
+  margin-top: auto;
+}
+
+.files-title {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 1.5px;
+}
+
+.icons {
+  display: flex;
+  gap: 14px;
+  font-size: 24px;
+}
+
+.icon {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.icon:hover {
+  transform: translateY(-3px) scale(1.1);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* ============================================
+   7. CODE EDITOR SECTION
+   Professional code editor styling
+   ============================================ */
+
+.editor-section {
+  flex: 1;
+  background: rgba(40, 40, 40, 0.6);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.editor-tabs {
+  background: rgba(30, 30, 30, 0.9);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 0 12px;
+  display: flex;
+  gap: 4px;
+  min-height: 40px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tab {
+  padding: 10px 18px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  font-weight: 500;
+}
+
+.tab.active {
+  color: #fff;
+  background: rgba(59, 130, 246, 0.1);
+  border-bottom-color: #3b82f6;
+}
+
+.tab:hover:not(.active) {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   CODE EDITOR - Editable Textarea
+   ============================================ */
+.code-editor {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  padding: 20px;
+  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-y: auto;
+  background: rgba(25, 25, 25, 0.6);
+  color: #e6e6e6;
+  border: none;
+  outline: none;
+  resize: none;
+  -webkit-tab-size: 2;
+  tab-size: 2;
+  white-space: pre;
+  overflow-wrap: normal;
+  overflow-x: auto;
+}
+
+.code-editor:focus {
+  background: rgba(25, 25, 25, 0.8);
+}
+
+/* Legacy editor styles */
+.editor {
+  flex: 1;
+  padding: 20px;
+  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 14px;
+  overflow-y: auto;
+  background: rgba(25, 25, 25, 0.6);
+}
+
+.code-line {
+  min-height: 24px;
+  display: flex;
+  padding: 2px 0;
+  transition: background-color 0.2s ease;
+}
+
+.code-line:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.line-num {
+  color: rgba(255, 255, 255, 0.3);
+  margin-right: 20px;
+  width: 40px;
+  text-align: right;
+  user-select: none;
+}
+
+/* ============================================
+   8. PREVIEW SECTION
+   Clean preview area with subtle animations
+   ============================================ */
+
+.preview-section {
+  flex: 1;
+  background: rgba(40, 40, 40, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated background pattern */
+.preview-section::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: movePattern 20s linear infinite;
+}
+
+.preview-box {
+  background: #ffffff;
+  color: #000;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 85%;
+  max-width: 600px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeInUp 0.6s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.preview-box h1 {
+  font-size: 42px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+/* Preview content styling */
+.preview-content {
+  width: 100%;
+  text-align: center;
+}
+
+.preview-content h1 {
+  font-size: 48px;
+  font-weight: 800;
+  color: #2d3748;
+  margin: 0;
+}
+
+.preview-content h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0;
+}
+
+.preview-content h3 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #2d3748;
+  margin: 0;
+}
+
+.preview-content p {
+  font-size: 16px;
+  color: #4a5568;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.preview-placeholder {
+  color: #a0aec0;
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+}
+
+/* ============================================
+   9. STATUS BAR
+   Professional status bar
+   ============================================ */
+
+.status-bar {
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  padding: 0 16px;
+  height: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  font-family: 'SF Mono', 'Monaco', monospace;
+  box-shadow: 0 -2px 12px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================
+   10. LIGHT MODE STYLES
+   Complete light mode theme
+   ============================================ */
+
+/* Header - Light Mode */
+.app-container.light .header {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app-container.light .logo {
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.app-container.light .theme-label {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.app-container.light .theme-label:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+
+/* Sidebar - Light Mode */
+.app-container.light .sidebar {
+  background: rgba(250, 250, 250, 0.9);
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app-container.light .btn {
+  background: linear-gradient(135deg, #374151 0%, #1f2937 100%);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.app-container.light .btn:hover {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.app-container.light .files-title {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+/* Editor - Light Mode */
+.app-container.light .editor-section {
+  background: rgba(250, 250, 250, 0.5);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.app-container.light .editor-tabs {
+  background: rgba(245, 245, 245, 0.9);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.app-container.light .tab {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+.app-container.light .tab.active {
+  color: #1a1a1a;
+  background: rgba(59, 130, 246, 0.15);
+  border-bottom-color: #3b82f6;
+}
+
+.app-container.light .tab:hover:not(.active) {
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.app-container.light .code-editor {
+  background: rgba(255, 255, 255, 0.8);
+  color: #1a1a1a;
+}
+
+.app-container.light .code-editor:focus {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.app-container.light .editor {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.app-container.light .code-line:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.app-container.light .line-num {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.app-container.light .preview-section {
+  background: rgba(250, 250, 250, 0.5);
+}
+
+.app-container.light .preview-box {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Smooth transitions for all theme changes */
+.app-container.light * {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   11. ANIMATIONS & KEYFRAMES
+   Smooth, modern animations
+   ============================================ */
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes moonGlow {
+  0% {
+    filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.5));
+  }
+  100% {
+    filter: drop-shadow(0 0 8px rgba(251, 191, 36, 0.8));
+  }
+}
+
+@keyframes sunRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes movePattern {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30px, 30px);
+  }
+}
+
+/* ============================================
+   12. SCROLLBAR STYLING
+   Modern custom scrollbars
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(30, 30, 30, 0.5);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #4b5563 0%, #6b7280 100%);
+  border-radius: 6px;
+  border: 2px solid rgba(30, 30, 30, 0.5);
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #6b7280 0%, #9ca3af 100%);
+}
+
+/* Light Mode Scrollbar */
+.app-container.light ::-webkit-scrollbar-track {
+  background: rgba(240, 240, 240, 0.8);
+}
+
+.app-container.light ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #d1d5db 0%, #9ca3af 100%);
+  border: 2px solid rgba(240, 240, 240, 0.8);
+}
+
+.app-container.light ::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #9ca3af 0%, #6b7280 100%);
+}
+
+/* ============================================
+   13. RESPONSIVE DESIGN
+   Mobile-first responsive breakpoints
+   ============================================ */
+
+@media (max-width: 1200px) {
+  .sidebar {
+    width: 180px;
+    padding: 20px;
+  }
+  
+  .logo {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 968px) {
+  .header-right {
+    gap: 12px;
+  }
+  
+  .theme-label {
+    display: none;
+  }
+  
+  .sidebar {
+    width: 160px;
+    padding: 16px;
+  }
+  
+  .preview-box {
+    width: 90%;
+    padding: 40px;
+  }
+  
+  .preview-box h1 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 14px 20px;
+  }
+  
+  .logo {
+    font-size: 18px;
+  }
+  
+  .header-right {
+    gap: 8px;
+  }
+  
+  .login-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+  
+  .sidebar {
+    width: 140px;
+    padding: 12px;
+  }
+  
+  .btn {
+    padding: 10px 12px;
+    font-size: 12px;
+  }
+  
+  .icons {
+    gap: 10px;
+    font-size: 20px;
+  }
+  
+  .preview-box {
+    padding: 30px;
+    min-height: 300px;
+  }
+  
+  .preview-box h1 {
+    font-size: 28px;
+  }
+  
+  .editor {
+    padding: 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+  
+  .header-left,
+  .header-right {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .main-content {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .button-group {
+    flex-direction: row;
+    flex: 1;
+  }
+  
+  .btn {
+    flex: 1;
+  }
+}
+
+/* ============================================
+   14. ACCESSIBILITY & USER EXPERIENCE
+   ============================================ */
+
+/* Focus states for better keyboard navigation */
+button:focus,
+.toggle-switch:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .header,
+  .sidebar,
+  .editor-section {
+    border-width: 2px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header-right,
+  .sidebar,
+  .preview-section {
+    display: none;
+  }
+  
+  .editor-section {
+    width: 100%;
+  }
+}
+
+/* ============================================
+   END OF STYLESHEET
+   ============================================ */
